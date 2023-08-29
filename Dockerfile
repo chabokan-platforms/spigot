@@ -26,13 +26,6 @@ RUN curl -o BuildTools.jar https://hub.spigotmc.org/jenkins/job/BuildTools/lastS
     cp spigot-*.jar /buildResult/spigot.jar && \
     rm -rf /mcbuild
 
-#must have
-COPY ./ttyd /etc/ttyd
-RUN mkdir /etc/ttyd/build
-WORKDIR /etc/ttyd/build
-RUN cmake .. && make && make install
-# -----------------------
-
 WORKDIR /data
 
 CMD /scripts/start.sh
